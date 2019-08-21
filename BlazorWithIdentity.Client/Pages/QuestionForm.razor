@@ -1,0 +1,30 @@
+﻿@page "/questionForm"
+@inject HttpClient Http
+
+<h1>A question form</h1>
+
+
+@if (questions == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <BSForm>
+    @foreach (var q in questions)
+    {
+        <CreatedQuestion Question="@q"/>
+    }
+    </BSForm>
+
+}
+
+@functions {
+
+    Question[] questions;
+
+    protected override async Task OnInitAsync()
+    {
+        questions = await Http.GetJsonAsync<Question[]>("api/Questions/GetQuestions");
+    }
+}

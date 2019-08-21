@@ -1,0 +1,9 @@
+﻿<BSFormGroup>
+    <BSLabel For="@Question.QuestionId">@Question.Text</BSLabel>
+    <BSInput Id="@Question.QuestionId" InputType="InputType.Text"></BSInput>
+</BSFormGroup>
+
+@code {
+    [Parameter]
+    public Question Question  {get;set;}
+}
