@@ -1,3 +1,4 @@
+using BlazorStrap;
 using BlazorWithIdentity.Client.Services.Contracts;
 using BlazorWithIdentity.Client.Services.Implementations;
 using BlazorWithIdentity.Client.States;
@@ -17,6 +18,7 @@ namespace BlazorWithIdentity.Client
             services.AddScoped<IdentityAuthenticationStateProvider>();
             services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<IdentityAuthenticationStateProvider>());
             services.AddScoped<IAuthorizeApi, AuthorizeApi>();
+            services.AddBootstrapCSS();
         }
 
         public void Configure(IComponentsApplicationBuilder app)

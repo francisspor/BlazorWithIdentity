@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @inject IUriHelper uriHelper
 @inject IdentityAuthenticationStateProvider authStateProvider
+@inject IBootstrapCSS BootstrapCSS
 
 <AuthorizeView>
     <Authorized>
@@ -16,11 +17,22 @@
             <div class="content px-4">
                 @Body
             </div>
+
+            <ThemeSwitcher />
         </div>
     </Authorized>
 </AuthorizeView>
 
-@functions{
+
+@code {
+    protected override async Task OnInitAsync()
+    {
+        await BootstrapCSS.SetBootstrapCSS("4.3.1");
+    }
+}
+
+@functions
+{
 
     [CascadingParameter]
     Task<AuthenticationState> AuthenticationState { get; set; }
