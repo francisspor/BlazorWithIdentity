@@ -1,13 +1,13 @@
 ﻿@inject IBootstrapCSS BootstrapCSS
 
 <BSForm>
-    <BSInput InputType="InputType.Select" Value="@Selected" ValueChanged="@SelectedChanged">
+    <BSBasicInput InputType="InputType.Select" Value="@Selected" ValueChanged="@SelectedChanged">
         @foreach (string theme in themes)
         {
 
             <option value="@theme">@theme</option>
         }
-    </BSInput>
+    </BSBasicInput>
 </BSForm>
 
 
@@ -22,7 +22,7 @@
     }
 
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         themes = Enum.GetNames(typeof(Theme)).ToList();
         Selected = BootstrapCSS.CurrentTheme.ToString();

@@ -10,7 +10,7 @@
 }
 else
 {
-    <BSForm>
+    <BSForm IsInline="true" >
     @foreach (var q in questions)
     {
         <CreatedQuestion Question="@q"/>
@@ -23,7 +23,7 @@ else
 
     Question[] questions;
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         questions = await Http.GetJsonAsync<Question[]>("api/Questions/GetQuestions");
     }

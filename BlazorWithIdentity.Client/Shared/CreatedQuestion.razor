@@ -1,6 +1,8 @@
-﻿<BSFormGroup>
+﻿@Question.QuestionId
+
+<BSFormGroup>
     <BSLabel For="@Question.QuestionId">@Question.Text</BSLabel>
-    <BSInput Id="@Question.QuestionId" InputType="InputType.Text"></BSInput>
+    <BSBasicInput Id="@Question.QuestionId" InputType="InputType.Text"></BSBasicInput>
 </BSFormGroup>
 
 @code {
